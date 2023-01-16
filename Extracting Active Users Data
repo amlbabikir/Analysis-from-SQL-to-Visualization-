@@ -15,8 +15,8 @@ JSON_VALUE(users.data , "$.totalSpent") as totalSpent,
 JSON_VALUE(users.data , "$.wallet.dueBalance") as dueBalance ,
 JSON_VALUE(users.data , "$.wallet.totalAmount") as wallettotalAmount 
 
- FROM `bummbee-b518b.all.users_raw_latest` as users
- INNER JOIN `bummbee-b518b.all.invoices_raw_latest` as invoices  
+ FROM `website.all.users_raw_latest` as users
+ INNER JOIN `website.all.invoices_raw_latest` as invoices  
  ON JSON_VALUE(invoices.data, "$.userId") = users.document_id
  where JSON_VALUE(invoices.data, "$.status") = 'paid'
   )  
